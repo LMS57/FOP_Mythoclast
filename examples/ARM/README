@@ -1,0 +1,1 @@
+The files in scripts were designed to run against a target hosted within a QEMU-system instance. QEMU-user does not appear to correctly handle this libc and ld
