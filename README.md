@@ -10,5 +10,7 @@ This is required to handle newer instructions introduced into instruction sets o
 python3 fm.py -c <core_file> 
 ```
 
+echo 0x37 > /proc/self/coredump_filter
+
 # Paper
 https://scholar.dsu.edu/theses/433/

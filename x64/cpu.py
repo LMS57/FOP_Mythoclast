@@ -541,7 +541,14 @@ class Cpu(object):
         @param name: the register name to obtain its value
         @return: the value of the register
         '''
-        assert name in self.listRegisters()
+        try:
+            assert name in self.listRegisters()
+        except:
+            print("unkown register")
+            print(name)
+            self.impossible = 1
+            return
+            exit(0)
         return getattr(self, name)
 
     _flags={

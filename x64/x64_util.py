@@ -98,12 +98,15 @@ class util():
                 return
             elif self.avoids and inst.mnemonic == 'syscall': #ignore syscall if parameter set
                 return
-            elif inst.mnemonic[0] == 'j' and inst.mnemonic != 'jmp':
+            elif inst.mnemonic[0] == 'j' and inst.mnemonic != 'jmp' or inst.mnemonic[:7] == 'notrack':
                 if inst.op_str[0] != '0':
                     #this is a register or memory
                     return
                 if inst.mnemonic[:2] == 'jr':
                     #this is a jump register if rcx instruction, currently our jump modifications cannot handle this
+                    return
+                #currently do not handle indirect jumps
+                if inst.mnemonic[:7] == 'notrack':
                     return
                 if int(inst.op_str,16) not in jumps: #check to make sure we haven't hit it yet
                     jumps.append(inst.address) #add to the list to check if we hit again

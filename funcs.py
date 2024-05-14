@@ -270,7 +270,7 @@ def pretty_print(lib, addr, ret, cpu):
                 return 0
         #TODO   
         #print(f'{cpu.location} {addr}:')
-        print(f'{lib} {addr}:')
+        print(f'{lib} {hex(addr)}:')
         print("   Results:")
 
         for REG in results:
