@@ -3742,7 +3742,7 @@ class Cpu(object):
         @param cpu: current CPU.
         @param target: destination operand.         
         '''
-        cpu.jump(target, cpu.OF == False, 'NO')
+        cpu.jumpy(target, cpu.OF == False, 'NO')
 
     @instruction
     def JNP(cpu, target):
@@ -5495,7 +5495,9 @@ DEST[255:0] <- SRC[255:0]
 
     @instruction
     def CVTSI2SD(cpu, dest, src):
-        raise NotImplemented()
+        #raise NotImplemented()
+        pass
+        
     @instruction
     def PINSRW(cpu, dest, src, count):
         if dest.size == 64:
